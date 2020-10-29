@@ -34,6 +34,10 @@ public double distanceTo(Point other){
 
 }
 
+public boolean equals(Point other){
+  return ( (x == other.x) && (y == other.y) );
+
+}
 
 
 }
