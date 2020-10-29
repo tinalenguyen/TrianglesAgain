@@ -39,6 +39,26 @@ public double getArea(){
 
 }
 
+public String classify() {
+//return the triangle as equilateral/isosceles/scalene
+double side1 = Math.round(v2.distanceTo(v1) * 1000.0) / 1000.0;
+double side2 = Math.round(v2.distanceTo(v3) * 1000.0) / 1000.0;
+double side3 = Math.round(v1.distanceTo(v3) * 1000.0) / 1000.0;
+String result = "";
+  if (side1 == side2 && side2 == side3 && side1 == side3){
+    result = "equilateral";
+  }
+
+  if (side1 != side2 && side2 != side3 && side1 != side3){
+    result = "scalene";
+  }
+
+  if (side1 == side2 || side2 == side3 || side1 == side3){
+    result = "isosceles";
+  }
+
+  return result;
+}
 
 
 }
