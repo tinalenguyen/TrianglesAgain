@@ -21,7 +21,7 @@ public Triangle(double x1, double y1, double x2, double y2, double x3, double y3
 public double getPerimeter() {
 //return the perimeter without any rounding
 
-  return (v2.distanceTo(v1) + v1.distanceTo(v3) + v3.distanceTo(v2));
+  return (v1.distanceTo(v2) + v2.distanceTo(v3) + v3.distanceTo(v1));
 
 
 
@@ -29,10 +29,10 @@ public double getPerimeter() {
 
 public double getArea(){
 //returns the area using heron's formula without any rounding
-  double s = getPerimeter() / 2;
-  double side1 = v2.distanceTo(v1);
+  double s = getPerimeter() / 2.0;
+  double side1 = v1.distanceTo(v2);
   double side2 = v2.distanceTo(v3);
-  double side3 = v3.distanceTo(v2);
+  double side3 = v3.distanceTo(v1);
 
   return Math.sqrt( s * (s - side1) * (s - side2) * (s - side3) );
 
@@ -49,12 +49,12 @@ String result = "";
     result = "equilateral";
   }
 
-  if (side1 != side2 && side2 != side3 && side1 != side3){
-    result = "scalene";
+  else if (side1 == side2 || side2 == side3 || side1 == side3){
+    result = "isosceles";
   }
 
-  if (side1 == side2 || side2 == side3 || side1 == side3){
-    result = "isosceles";
+  else  {
+    result = "scalene";
   }
 
   return result;
@@ -66,8 +66,23 @@ return "v1(" + v1.getX() + ", " + v1.getY() +
        ") v2(" + v2.getX() + ", " + v2.getY() +
        ") v3(" + v3.getX() + ", " + v3.getY() + ")";
 
-
-
 }
+
+public void setVertex(int index, Point newP){
+//replace specified point with new Point
+
+if (index == 0) {
+  v1 = newP;
+}
+
+if (index == 1){
+  v2 = newP;
+}
+
+if (index == 2){
+  v3 = newP;
+}
+
+  }
 
 }
