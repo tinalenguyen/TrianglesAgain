@@ -60,5 +60,14 @@ String result = "";
   return result;
 }
 
+public String toString(){
+//format should be "v1(23.0, 4.0) v2(-2.3, 5.001) v3(5.0, 0.52)"
+return "v1(" + v1.getX() + ", " + v1.getY() +
+       ") v2(" + v2.getX() + ", " + v2.getY() +
+       ") v3(" + v3.getX() + ", " + v3.getY() + ")";
+
+
+
+}
 
 }
