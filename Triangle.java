@@ -18,6 +18,26 @@ public Triangle(double x1, double y1, double x2, double y2, double x3, double y3
 
 }
 
+public double getPerimeter() {
+//return the perimeter without any rounding
+
+  return (v2.distanceTo(v1) + v1.distanceTo(v3) + v3.distanceTo(v2));
+
+
+
+}
+
+public double getArea(){
+//returns the area using heron's formula without any rounding
+  double s = getPerimeter() / 2;
+  double side1 = v2.distanceTo(v1);
+  double side2 = v2.distanceTo(v3);
+  double side3 = v3.distanceTo(v2);
+
+  return Math.sqrt( s * (s - side1) * (s - side2) * (s - side3) );
+
+
+}
 
 
 
